@@ -3,18 +3,18 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
-<title>JetUP · Your Path</title>
+<title>JetUP Legends · Your Path</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@200;300;400;500;600;700&family=Syne:wght@600;700;800&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@200;300;400;500;600;700&family=Cormorant+Garamond:wght@400;500;600;700&display=swap" rel="stylesheet">
 <style>
 :root{
-  --ink:#050608; --bg:#0A0D14;
-  --gold:#C9A227; --gold-lite:#E8C55F; --gold-deep:#8A6E15;
-  --hair:rgba(201,162,39,0.28);
+  --ink:#0A0A0A; --bg:#0A0A0A;
+  --gold:#C69B3C; --gold-lite:#EBDAB0; --gold-deep:#9C7A2E;
+  --hair:rgba(198,155,60,0.28);
   --w08:rgba(255,255,255,0.08); --w14:rgba(255,255,255,0.14);
   --w40:rgba(255,255,255,0.40); --w60:rgba(255,255,255,0.60);
-  --gold-line:linear-gradient(90deg,rgba(201,162,39,0) 0%,#E8C55F 16%,#C9A227 72%,rgba(201,162,39,0) 100%);
+  --gold-line:linear-gradient(90deg,rgba(198,155,60,0) 0%,#EBDAB0 16%,#C69B3C 72%,rgba(198,155,60,0) 100%);
   --ease:cubic-bezier(.22,.61,.36,1);
 }
 *{box-sizing:border-box;-webkit-font-smoothing:antialiased}
@@ -65,7 +65,7 @@ html,body{margin:0;padding:0;height:100%;background:#000;overflow:hidden;
 .foot{flex:none;display:flex;flex-direction:column;gap:18px;}
 .footline{display:flex;justify-content:space-between;font-size:15px;color:var(--w40);letter-spacing:.06em;}
 
-h1{font-family:Syne,sans-serif;font-weight:700;font-size:74px;line-height:1.06;margin:0;letter-spacing:-.02em;}
+h1{font-family:"Cormorant Garamond",Georgia,serif;font-weight:700;font-size:74px;line-height:1.06;margin:0;letter-spacing:-.02em;}
 h1.big{font-size:168px;line-height:.92;letter-spacing:-.03em;}
 h1.mid{font-size:60px;}
 .rule{height:2px;width:300px;background:var(--gold-line);margin-top:24px;}
@@ -89,8 +89,8 @@ h1.mid{font-size:60px;}
 .hot{position:relative;cursor:pointer;transition:transform .3s var(--ease);}
 .hot::after{content:"";position:absolute;inset:-14px -18px;border:1px solid transparent;
   transition:border-color .3s,background .3s;pointer-events:none;}
-.hot:hover::after{border-color:var(--hair);background:rgba(201,162,39,.05);}
-.hot.open::after{border-color:var(--gold);background:rgba(201,162,39,.08);}
+.hot:hover::after{border-color:var(--hair);background:rgba(198,155,60,.05);}
+.hot.open::after{border-color:var(--gold);background:rgba(198,155,60,.08);}
 .hot .pin{position:absolute;top:-10px;right:-24px;width:9px;height:9px;background:var(--gold);
   animation:pin 2.4s ease-in-out infinite;}
 @keyframes pin{0%,100%{opacity:.45;transform:scale(1)}50%{opacity:1;transform:scale(1.5)}}
@@ -101,7 +101,7 @@ h1.mid{font-size:60px;}
   box-shadow:0 30px 90px rgba(0,0,0,.75);}
 #pop.on{opacity:1;pointer-events:auto;transform:none;}
 #pop .pl{font-size:12px;letter-spacing:.26em;color:var(--gold);margin-bottom:14px;}
-#pop .pt{font-family:Syne,sans-serif;font-weight:600;font-size:30px;line-height:1.16;margin-bottom:14px;}
+#pop .pt{font-family:"Cormorant Garamond",Georgia,serif;font-weight:600;font-size:30px;line-height:1.16;margin-bottom:14px;}
 #pop .pd{font-size:19px;line-height:1.6;color:var(--w60);}
 #pop .px{position:absolute;top:12px;right:14px;color:var(--w40);cursor:pointer;font-size:18px;line-height:1;}
 #pop .px:hover{color:#fff;}
@@ -114,11 +114,11 @@ h1.mid{font-size:60px;}
   color:var(--w60);cursor:pointer;font-size:17px;display:grid;place-items:center;transition:.25s;}
 #tocBtn{right:36px;} #sndBtn{right:94px;}
 #tocBtn:hover,#sndBtn:hover{border-color:var(--gold);color:var(--gold-lite);}
-#sndBtn.on{border-color:var(--gold);color:var(--gold-lite);background:rgba(201,162,39,.12);}
+#sndBtn.on{border-color:var(--gold);color:var(--gold-lite);background:rgba(198,155,60,.12);}
 #nav{bottom:34px;right:36px;display:flex;gap:10px;}
 #nav button{width:54px;height:46px;border:1px solid var(--w14);background:rgba(255,255,255,.04);
   color:var(--w60);cursor:pointer;font-size:18px;transition:.25s;}
-#nav button:hover:not(:disabled){border-color:var(--gold);color:var(--gold-lite);background:rgba(201,162,39,.09);}
+#nav button:hover:not(:disabled){border-color:var(--gold);color:var(--gold-lite);background:rgba(198,155,60,.09);}
 #nav button:disabled{opacity:.25;cursor:default;}
 #counter{bottom:38px;left:50%;transform:translateX(-50%);font-size:14px;letter-spacing:.28em;color:var(--w40);}
 #counter b{color:var(--gold-lite);font-weight:400;}
@@ -163,7 +163,7 @@ h1.mid{font-size:60px;}
 .cols4{display:grid;grid-template-columns:repeat(4,1fr);}
 .card{padding:26px 44px 26px 0;}
 .card .cn{font-size:13px;letter-spacing:.24em;color:var(--w40);margin-bottom:10px;}
-.card .ct{font-family:Syne,sans-serif;font-weight:600;font-size:27px;margin-bottom:9px;}
+.card .ct{font-family:"Cormorant Garamond",Georgia,serif;font-weight:600;font-size:27px;margin-bottom:9px;}
 .card .cd{font-size:19px;color:var(--w60);line-height:1.5;}
 
 .bar{height:44px;border:1px solid var(--w08);background:rgba(255,255,255,.08);width:0;
@@ -182,7 +182,7 @@ h1.mid{font-size:60px;}
 .tierrow:first-child{border-bottom-color:var(--gold);}
 .tierrow .tv{width:120px;font-size:22px;color:var(--w60);flex:none;}
 .tierrow:first-child .tv{color:var(--gold);}
-.tierrow .tb{height:14px;background:rgba(201,162,39,.55);width:0;transition:width 1s var(--ease);}
+.tierrow .tb{height:14px;background:rgba(198,155,60,.55);width:0;transition:width 1s var(--ease);}
 .tierrow:first-child .tb{background:linear-gradient(90deg,var(--gold-lite),var(--gold));}
 .tierrow .tp{font-weight:200;font-size:44px;margin-left:auto;}
 .tierrow:first-child .tp{color:var(--gold);}
@@ -190,13 +190,13 @@ h1.mid{font-size:60px;}
 /* ── cinema intro ─────────────────────────────────────────────── */
 .cinema{position:absolute;inset:0;display:flex;flex-direction:column;
   justify-content:flex-end;padding:0 120px 150px;z-index:20;}
-.cine{font-family:Syne,sans-serif;font-weight:800;font-size:118px;line-height:1.04;
+.cine{font-family:"Cormorant Garamond",Georgia,serif;font-weight:700;font-size:118px;line-height:1.04;
   letter-spacing:-.035em;margin:0 0 .04em;color:rgba(255,255,255,.9);
   text-shadow:0 2px 30px rgba(0,0,0,.9);
   animation:cineIn .95s cubic-bezier(.16,1,.3,1) both;}
-.cine.gold{background:linear-gradient(96deg,#E8C55F 0%,#C9A227 58%,#8A6E15 100%);
+.cine.gold{background:linear-gradient(96deg,#EBDAB0 0%,#C69B3C 58%,#9C7A2E 100%);
   -webkit-background-clip:text;-webkit-text-fill-color:transparent;
-  text-shadow:none;filter:drop-shadow(0 0 34px rgba(201,162,39,.32));}
+  text-shadow:none;filter:drop-shadow(0 0 34px rgba(198,155,60,.32));}
 @keyframes cineIn{from{opacity:0;transform:translateY(34px)}to{opacity:1;transform:none}}
 .cine-skip{position:absolute;left:120px;bottom:96px;z-index:22;font-size:13px;
   letter-spacing:.26em;color:var(--w40);opacity:0;animation:rvIn .8s ease 3.9s forwards;}
@@ -209,7 +209,7 @@ h1.mid{font-size:60px;}
 .forkopt:last-child{border-bottom:1px solid var(--w08);}
 .forkopt.accent{border-top:1.5px solid var(--hair);border-bottom:1.5px solid var(--hair);margin-top:-1px;}
 .forkopt:hover{transform:translateX(14px);border-color:var(--gold);}
-.forkopt .fo-t{font-family:Syne,sans-serif;font-weight:700;font-size:46px;line-height:1.06;
+.forkopt .fo-t{font-family:"Cormorant Garamond",Georgia,serif;font-weight:700;font-size:46px;line-height:1.06;
   letter-spacing:-.02em;margin-bottom:10px;transition:color .3s;}
 .forkopt:hover .fo-t,.forkopt.accent .fo-t{color:var(--gold-lite);}
 .forkopt .fo-s{font-size:21px;color:var(--w60);line-height:1.5;max-width:760px;}
@@ -226,7 +226,7 @@ h1.mid{font-size:60px;}
   background:var(--w14);outline:none;cursor:pointer;}
 .sl input[type=range]::-webkit-slider-thumb{-webkit-appearance:none;appearance:none;
   width:26px;height:26px;background:var(--gold);border:0;cursor:grab;
-  box-shadow:0 0 0 6px rgba(201,162,39,.18);}
+  box-shadow:0 0 0 6px rgba(198,155,60,.18);}
 .sl input[type=range]::-webkit-slider-thumb:active{cursor:grabbing;background:var(--gold-lite);}
 .sl input[type=range]::-moz-range-thumb{width:26px;height:26px;background:var(--gold);
   border:0;border-radius:0;cursor:grab;}
@@ -241,7 +241,7 @@ h1.mid{font-size:60px;}
 .outrow .os{font-size:17px;color:var(--w60);}
 .pill{display:inline-block;padding:7px 16px;border:1px solid var(--w14);font-size:14px;
   letter-spacing:.14em;color:var(--w40);transition:.3s;}
-.pill.hit{border-color:var(--gold);color:var(--gold-lite);background:rgba(201,162,39,.1);}
+.pill.hit{border-color:var(--gold);color:var(--gold-lite);background:rgba(198,155,60,.1);}
 
 /* ── path switcher ────────────────────────────────────────────── */
 #pathsw{position:absolute;top:34px;left:36px;z-index:70;display:none;gap:0;
@@ -250,8 +250,8 @@ h1.mid{font-size:60px;}
 #pathsw button{padding:11px 22px;background:transparent;border:0;cursor:pointer;
   font-family:Montserrat,sans-serif;font-size:12px;letter-spacing:.2em;color:var(--w40);
   transition:.25s;}
-#pathsw button.now{background:var(--gold);color:#0A0D14;font-weight:600;}
-#pathsw button:not(.now):hover{color:var(--gold-lite);background:rgba(201,162,39,.1);}
+#pathsw button.now{background:var(--gold);color:#0A0A0A;font-weight:600;}
+#pathsw button:not(.now):hover{color:var(--gold-lite);background:rgba(198,155,60,.1);}
 
 @media (prefers-reduced-motion:reduce){*{animation-duration:.01ms!important;transition-duration:.01ms!important}}
 </style>
@@ -328,13 +328,13 @@ const SCENES = [
   key:'cover', rail:null, bg:'aurora', plate:P.skyline, kicker:'PARTNER PROGRAM · 2026',
   notes:'',
   html:`<div class="body" style="gap:48px">
-      <div class="eyebrow rv" style="animation-delay:.15s">WELCOME</div>
+      <div class="rv" style="animation-delay:.05s;display:flex;align-items:center;gap:26px;margin-bottom:6px"><svg viewBox="0 0 142 106" style="height:96px;color:var(--gold);display:block" aria-label="JetUP Legends"><g fill="none" stroke="currentColor" stroke-width="9"><path d="M64 12 V76"/><path d="M64 76 C64 92 50 100 34 94"/><path d="M64 76 H94 L120 50"/></g><path d="M126 32 L133.5 42 L126 52 L118.5 42 Z" fill="currentColor"/></svg><span style="font-family:'Cormorant Garamond',Georgia,serif;font-size:44px;color:#F4EADE;line-height:1">JetUP <span style="color:var(--gold)">Legends</span></span></div><div class="eyebrow rv" style="animation-delay:.15s">WELCOME</div>
       <h1 class="big rv" style="animation-delay:.3s">Your path.</h1>
       <div class="rule rv" style="width:560px;animation-delay:.55s"></div>
       <div class="lead rv" style="font-size:30px;max-width:1150px;animation-delay:.7s">Fifteen minutes, from the first step to the fourth income.</div>
     </div>
     <div class="foot"><div class="footline rv" style="animation-delay:.95s;gap:44px;justify-content:flex-start;letter-spacing:.24em;font-size:15px">
-      <span>STRUCTURE</span><span>TRANSPARENCY</span><span>CONTROL</span></div></div>`
+      <span>STRUCTURE</span><span>TRANSPARENCY</span><span>CONTROL</span><span style="color:var(--gold)">INNER CIRCLE OF JetUP</span></div></div>`
 },
 {
   key:'risk', rail:null, bg:'still', plate:P.rain, kicker:'DISCLOSURE',
@@ -391,7 +391,7 @@ const SCENES = [
           <div style="display:flex;align-items:center"><div style="width:16px;height:16px;background:var(--gold);flex:none"></div><div style="flex:1;height:1px;background:var(--gold)"></div></div>
           <div style="padding-top:26px"><div class="cn" style="color:var(--gold)">OPEN LEVELS</div><div class="num" style="font-size:72px">3</div><div class="cd" style="margin-top:14px;font-size:21px">You earn three levels deep before you bring a single partner.</div></div></div>
         <div class="card hot rv" style="animation-delay:.86s;padding-left:56px" data-hot="2"><span class="pin"></span>
-          <div style="display:flex;align-items:center"><div style="width:16px;height:16px;background:var(--gold);flex:none"></div><div style="flex:1;height:1px;background:linear-gradient(90deg,var(--gold),rgba(201,162,39,0))"></div></div>
+          <div style="display:flex;align-items:center"><div style="width:16px;height:16px;background:var(--gold);flex:none"></div><div style="flex:1;height:1px;background:linear-gradient(90deg,var(--gold),rgba(198,155,60,0))"></div></div>
           <div style="padding-top:26px"><div class="cn" style="color:var(--gold)">THE BIX CARD</div><div class="num" style="font-size:72px">included</div><div class="cd" style="margin-top:14px;font-size:21px">Wallet and debit card — commissions payable straight to it.</div></div></div>
       </div>
     </div>`,
@@ -429,7 +429,7 @@ const SCENES = [
       <div style="display:flex;height:132px;border:1px solid var(--hair)" class="rv" data-delay=".86">
         <div class="hot" data-hot="0" style="width:70%;background:rgba(255,255,255,.04);display:flex;align-items:center;justify-content:space-between;padding:0 40px">
           <span style="font-size:19px;letter-spacing:.22em;color:var(--w60)">CLIENT KEEPS</span><span class="num" style="font-size:62px">70%</span></div>
-        <div class="hot" data-hot="1" style="width:30%;background:linear-gradient(90deg,rgba(201,162,39,.16),rgba(201,162,39,.30));display:flex;align-items:center;justify-content:space-between;padding:0 40px">
+        <div class="hot" data-hot="1" style="width:30%;background:linear-gradient(90deg,rgba(198,155,60,.16),rgba(198,155,60,.30));display:flex;align-items:center;justify-content:space-between;padding:0 40px">
           <span class="pin"></span><span style="font-size:19px;letter-spacing:.22em;color:var(--gold-lite)">YOU EARN HERE</span><span class="num" style="font-size:62px;color:var(--gold-lite)">30%</span></div>
       </div>
       <div class="lead rv" style="animation-delay:.98s;margin-top:0">Those 30% reach you through four incomes. We go through them one by one — and after each one I will tell you what has started paying.</div>
@@ -560,7 +560,7 @@ const SCENES = [
         <div class="row hot rv" data-delay=".66" data-hot="1"><span class="pin"></span><div class="rl">GLOBAL POOL 2</div><div class="num" style="font-size:66px">$1M</div><div class="rt">team volume</div><div class="num" style="font-size:52px;color:var(--gold);margin-left:auto">+1%</div></div>
       </div>
       <div style="display:flex;flex-direction:column;gap:6px" class="rv" data-delay=".8">
-        <div style="font-family:Syne,sans-serif;font-weight:600;font-size:30px">Getting in once is not a one-off.</div>
+        <div style="font-family:"Cormorant Garamond",Georgia,serif;font-weight:600;font-size:30px">Getting in once is not a one-off.</div>
         <div style="font-size:21px;color:var(--w60);max-width:1350px">Keep the same rhythm next month and you typically qualify again automatically.</div>
       </div>
       <div class="live-flag rv" style="animation-delay:.94s"><s style="color:var(--gold-lite)">NOW PAYING YOU</s><div>All four incomes are live · <span>Lot · Profit Share · Infinity · Global Pool</span></div></div>
@@ -635,7 +635,7 @@ const SCENES = [
           <div style="font-size:20px;color:var(--w60);line-height:1.5"><b style="color:var(--gold-lite);font-weight:600">Counts.</b> Structure, volume, commissions — payout in one click.</div></div>
       </div>
       <div class="rv" style="animation-delay:.9s">
-        <div style="font-family:Syne,sans-serif;font-weight:600;font-size:30px;margin-bottom:8px">And it duplicates.</div>
+        <div style="font-family:"Cormorant Garamond",Georgia,serif;font-weight:600;font-size:30px;margin-bottom:8px">And it duplicates.</div>
         <div style="font-size:21px;color:var(--w60);max-width:1400px">Every partner you bring in gets the same system on their first day. You share one link — the system does the rest.</div></div>
     </div>`,
   hotspots:[
@@ -650,12 +650,12 @@ const SCENES = [
   notes:'',
   html:`<div class="body" style="gap:34px">
       <div class="rv" style="border:1px solid var(--hair);padding:22px 34px;display:inline-block;align-self:flex-start">
-        <div style="font-family:Syne,sans-serif;font-weight:800;font-size:118px;line-height:1;letter-spacing:-.02em">BE<span style="color:var(--gold-lite)">YOND</span></div></div>
+        <div style="font-family:"Cormorant Garamond",Georgia,serif;font-weight:700;font-size:118px;line-height:1;letter-spacing:-.02em">BE<span style="color:var(--gold-lite)">YOND</span></div></div>
       <div class="rv" style="animation-delay:.22s;display:flex;align-items:center;gap:22px">
         <div style="width:44px;height:2px;background:var(--gold)"></div>
         <div style="font-size:28px;letter-spacing:.12em;font-weight:600">SEPTEMBER 19–20, 2026 · EXPO KRAKÓW</div></div>
       <div class="rv" style="animation-delay:.38s;display:flex;align-items:center;gap:34px">
-        <div style="font-family:Syne,sans-serif;font-weight:800;font-size:76px;line-height:1">JETUP DAY</div>
+        <div style="font-family:"Cormorant Garamond",Georgia,serif;font-weight:700;font-size:76px;line-height:1">JETUP DAY</div>
         <div style="border:1px solid var(--hair);padding:14px 28px;font-size:16px;letter-spacing:.18em;color:var(--w60)">SEPTEMBER 21 · VENUE COMING SOON</div></div>
       <div style="height:1px;background:var(--w08)" class="rv" data-delay=".5"></div>
       <div class="hot rv" data-delay=".6" data-hot="0" style="display:flex;align-items:center;gap:44px"><span class="pin"></span>
@@ -693,15 +693,15 @@ const SCENES = [
       <div class="cols3" style="gap:44px">
         <div class="hot rv" data-delay=".34" data-hot="0" style="border-top:1px solid var(--gold);padding-top:24px"><span class="pin"></span>
           <div class="cn" style="color:var(--gold)">"WHERE IS MY MONEY?"</div>
-          <div style="font-family:Syne,sans-serif;font-weight:600;font-size:32px;margin:14px 0">On your own account.</div>
+          <div style="font-family:"Cormorant Garamond",Georgia,serif;font-weight:600;font-size:32px;margin:14px 0">On your own account.</div>
           <div style="font-size:19px;color:var(--w60);line-height:1.55">Your capital sits with the licensed broker, in your name. JetUP never holds it and never moves it.</div></div>
         <div class="hot rv" data-delay=".46" data-hot="1" style="border-top:1px solid var(--gold);padding-top:24px"><span class="pin"></span>
           <div class="cn" style="color:var(--gold)">"WHAT IF I'M NOT SURE?"</div>
-          <div style="font-family:Syne,sans-serif;font-weight:600;font-size:32px;margin:14px 0">$150 is a look, not a bet.</div>
+          <div style="font-family:"Cormorant Garamond",Georgia,serif;font-weight:600;font-size:32px;margin:14px 0">$150 is a look, not a bet.</div>
           <div style="font-size:19px;color:var(--w60);line-height:1.55">The entry exists so you can see the system from the inside. Investing is a separate decision, made later.</div></div>
         <div class="hot rv" data-delay=".58" data-hot="2" style="border-top:1px solid var(--gold);padding-top:24px"><span class="pin"></span>
           <div class="cn" style="color:var(--gold)">"WHAT IF I WANT OUT?"</div>
-          <div style="font-family:Syne,sans-serif;font-weight:600;font-size:32px;margin:14px 0">Profits are withdrawable.</div>
+          <div style="font-family:"Cormorant Garamond",Georgia,serif;font-weight:600;font-size:32px;margin:14px 0">Profits are withdrawable.</div>
           <div style="font-size:19px;color:var(--w60);line-height:1.55">Profits from the MT5 account can be withdrawn at any time. Only the promo bonus has its own 12-month condition.</div></div>
       </div>
       <div class="lead rv" style="animation-delay:.76s;font-size:22px">And the honest part: trading involves risk. Some months are strong, some are not. Nobody here promises a return.</div>
@@ -729,7 +729,7 @@ const SCENES = [
           <div style="font-size:19px;color:var(--w60);line-height:1.55">Your own call, where we build the plan and set up your page — step by step.</div></div>
       </div>
       <div class="rv" style="animation-delay:.74s;display:flex;align-items:baseline;justify-content:space-between">
-        <div style="font-family:Syne,sans-serif;font-weight:700;font-size:42px;color:var(--gold)">Ask the person who invited you.</div>
+        <div style="font-family:"Cormorant Garamond",Georgia,serif;font-weight:700;font-size:42px;color:var(--gold)">Ask the person who invited you.</div>
         <div style="font-size:22px;color:var(--w60)">jet-up.ai</div></div>
     </div>
     <div class="foot"><div class="footline rv" style="animation-delay:.9s;font-size:14px;align-items:flex-end">
@@ -770,7 +770,7 @@ function seedMode(m){
 
 function blob(x,y,r,a){
   const g = cx.createRadialGradient(x,y,0,x,y,r);
-  g.addColorStop(0,`rgba(201,162,39,${a})`);
+  g.addColorStop(0,`rgba(198,155,60,${a})`);
   g.addColorStop(.45,`rgba(138,110,21,${a*.35})`);
   g.addColorStop(1,'rgba(0,0,0,0)');
   cx.fillStyle=g; cx.beginPath(); cx.arc(x,y,r,0,6.2832); cx.fill();
@@ -778,7 +778,7 @@ function blob(x,y,r,a){
 
 function paint(now){
   const t = (now - t0)/1000;
-  cx.fillStyle='#050608'; cx.fillRect(0,0,1920,1080);
+  cx.fillStyle='#0A0A0A'; cx.fillRect(0,0,1920,1080);
 
   if (mode==='aurora'){
     blob(1380+Math.sin(t*.16)*180, 220+Math.cos(t*.13)*120, 760, .17);
@@ -795,7 +795,7 @@ function paint(now){
       const a = -1.9 + i*.135 + Math.sin(t*.22+i)*.016;
       cx.rotate(0);
       const g = cx.createLinearGradient(0,0,Math.cos(a)*1900,Math.sin(a)*1900);
-      g.addColorStop(0,`rgba(232,197,95,${.05+Math.sin(t*.5+i)*.022})`);
+      g.addColorStop(0,`rgba(235,218,176,${.05+Math.sin(t*.5+i)*.022})`);
       g.addColorStop(1,'rgba(0,0,0,0)');
       cx.strokeStyle=g; cx.lineWidth=46;
       cx.beginPath(); cx.moveTo(0,0); cx.lineTo(Math.cos(a)*1900,Math.sin(a)*1900); cx.stroke();
@@ -808,7 +808,7 @@ function paint(now){
       if (mode==='stream'){ p.x += p.s*2.1; if(p.x>1960) p.x=-40; }
       else { p.y -= p.s*.55; p.x += Math.sin(t*.4+p.p)*.28; if(p.y<-20){p.y=1100;p.x=Math.random()*1920;} }
       const tw = p.a * (.65+.35*Math.sin(t*1.6+p.p));
-      cx.fillStyle=`rgba(232,197,95,${tw})`;
+      cx.fillStyle=`rgba(235,218,176,${tw})`;
       cx.beginPath(); cx.arc(p.x,p.y,p.r,0,6.2832); cx.fill();
     }
   }
@@ -818,9 +818,9 @@ function paint(now){
       p.x += p.s*1.6; p.y += Math.sin((p.x+t*40)*.0016)*.7;
       if (p.x>2020){ p.x=-220; p.y=Math.random()*1080; }
       const g = cx.createLinearGradient(p.x,p.y,p.x+p.len,p.y);
-      g.addColorStop(0,'rgba(201,162,39,0)');
-      g.addColorStop(.5,`rgba(232,197,95,${p.a})`);
-      g.addColorStop(1,'rgba(201,162,39,0)');
+      g.addColorStop(0,'rgba(198,155,60,0)');
+      g.addColorStop(.5,`rgba(235,218,176,${p.a})`);
+      g.addColorStop(1,'rgba(198,155,60,0)');
       cx.strokeStyle=g; cx.lineWidth=1.4;
       cx.beginPath(); cx.moveTo(p.x,p.y); cx.lineTo(p.x+p.len,p.y); cx.stroke();
     }
@@ -834,10 +834,10 @@ function paint(now){
     }
     for(let i=0;i<nodes.length;i++) for(let j=i+1;j<nodes.length;j++){
       const a=nodes[i], b=nodes[j], dx=a.x-b.x, dy=a.y-b.y, d=Math.hypot(dx,dy);
-      if(d<260){ cx.strokeStyle=`rgba(201,162,39,${(1-d/260)*.17})`; cx.lineWidth=1;
+      if(d<260){ cx.strokeStyle=`rgba(198,155,60,${(1-d/260)*.17})`; cx.lineWidth=1;
         cx.beginPath(); cx.moveTo(a.x,a.y); cx.lineTo(b.x,b.y); cx.stroke(); }
     }
-    for(const n of nodes){ cx.fillStyle='rgba(232,197,95,.5)';
+    for(const n of nodes){ cx.fillStyle='rgba(235,218,176,.5)';
       cx.beginPath(); cx.arc(n.x,n.y,2,0,6.2832); cx.fill(); }
   }
 }
@@ -886,15 +886,15 @@ function buildFan(){
   for(let i=0;i<10;i++) l1.push({x:330, y:40+i*38});
   for(let i=0;i<26;i++) l2.push({x:700, y:20+i*15.5});
   for(let i=0;i<70;i++) l3.push({x:1080+Math.random()*520, y:12+Math.random()*408});
-  const line=(a,b,o,d)=>`<line x1="${a.x}" y1="${a.y}" x2="${b.x}" y2="${b.y}" stroke="rgba(201,162,39,${o})" stroke-width="1" style="opacity:0;animation:rvIn .5s ease ${d}s forwards"/>`;
+  const line=(a,b,o,d)=>`<line x1="${a.x}" y1="${a.y}" x2="${b.x}" y2="${b.y}" stroke="rgba(198,155,60,${o})" stroke-width="1" style="opacity:0;animation:rvIn .5s ease ${d}s forwards"/>`;
   l1.forEach((p,i)=>g.push(line(L0,p,.5,.35+i*.03)));
   l2.forEach((p,i)=>g.push(line(l1[i%10],p,.26,.7+i*.012)));
   l3.forEach((p,i)=>g.push(line(l2[i%26],p,.12,1.0+i*.006)));
-  g.push(`<circle cx="${L0.x}" cy="${L0.y}" r="26" fill="rgba(201,162,39,.18)"/><circle cx="${L0.x}" cy="${L0.y}" r="13" fill="var(--gold-lite)"/>`);
+  g.push(`<circle cx="${L0.x}" cy="${L0.y}" r="26" fill="rgba(198,155,60,.18)"/><circle cx="${L0.x}" cy="${L0.y}" r="13" fill="var(--gold-lite)"/>`);
   g.push(`<text x="${L0.x}" y="${L0.y+50}" fill="rgba(255,255,255,.55)" font-family="Montserrat" font-size="15" letter-spacing="3" text-anchor="middle">YOU</text>`);
   l1.forEach((p,i)=>g.push(`<circle cx="${p.x}" cy="${p.y}" r="9" fill="var(--gold)" style="opacity:0;animation:rvIn .5s ease ${.4+i*.03}s forwards"/>`));
-  l2.forEach((p,i)=>g.push(`<circle cx="${p.x}" cy="${p.y}" r="5" fill="rgba(232,197,95,.75)" style="opacity:0;animation:rvIn .5s ease ${.75+i*.012}s forwards"/>`));
-  l3.forEach((p,i)=>g.push(`<circle cx="${p.x}" cy="${p.y}" r="2.4" fill="rgba(232,197,95,.45)" style="opacity:0;animation:rvIn .5s ease ${1.05+i*.006}s forwards"/>`));
+  l2.forEach((p,i)=>g.push(`<circle cx="${p.x}" cy="${p.y}" r="5" fill="rgba(235,218,176,.75)" style="opacity:0;animation:rvIn .5s ease ${.75+i*.012}s forwards"/>`));
+  l3.forEach((p,i)=>g.push(`<circle cx="${p.x}" cy="${p.y}" r="2.4" fill="rgba(235,218,176,.45)" style="opacity:0;animation:rvIn .5s ease ${1.05+i*.006}s forwards"/>`));
   return g.join('');
 }
 
