@@ -1,0 +1,314 @@
+<!doctype html><meta charset="utf-8">
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Caveat:wght@500;600&family=Cormorant+Garamond:wght@500;600&family=JetBrains+Mono:wght@400;500&family=Montserrat:wght@400;500&display=swap');
+*{margin:0;padding:0;box-sizing:border-box}
+html,body{width:1920px;height:1080px;overflow:hidden;background:#000}
+#stage{position:absolute;inset:0;background:#0A0A0A;font-family:Montserrat,sans-serif;color:#A9A296}
+.scene{position:absolute;inset:0;padding:110px 140px;opacity:0}
+.tag{font-family:'JetBrains Mono',monospace;font-size:22px;letter-spacing:.24em;color:#C69B3C;text-transform:uppercase;font-weight:500}
+.hand{font-family:Caveat,cursive;color:#EBDAB0}
+.serif{font-family:'Cormorant Garamond',serif;color:#EBDAB0}
+.mono{font-family:'JetBrains Mono',monospace;letter-spacing:.24em;text-transform:uppercase}
+.dim{color:#6E6A61}
+.gold{color:#C69B3C}
+.rule{height:1px;background:linear-gradient(90deg,#9C7A2E,#C69B3C 40%,rgba(198,155,60,.12));transform-origin:left center}
+.el{opacity:0}
+.wo{clip-path:inset(0 100% 0 0)}
+#frame{position:absolute;inset:26px;border:1px solid rgba(235,218,176,.28);pointer-events:none;z-index:40}
+#vignette{position:absolute;inset:0;background:radial-gradient(ellipse 120% 90% at 30% 40%,transparent 55%,rgba(0,0,0,.55) 100%);z-index:30}
+#grain{position:absolute;inset:-100px;z-index:35;opacity:.045;background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='300' height='300'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2'/%3E%3C/filter%3E%3Crect width='300' height='300' filter='url(%23n)'/%3E%3C/svg%3E")}
+#wm{position:absolute;top:52px;right:60px;width:78px;height:78px;object-fit:contain;opacity:0;z-index:38}
+#blackout{position:absolute;inset:0;background:#000;opacity:0;z-index:50}
+.medwrap{position:relative;width:340px;height:340px}
+.medwrap img{width:100%;height:100%;object-fit:contain}
+.sheen{position:absolute;inset:0;background:linear-gradient(115deg,transparent 30%,rgba(255,246,214,.85) 50%,transparent 70%);background-size:300% 100%;background-position:120% 0;-webkit-mask-image:url('file:///C:/Users/Jacka/Desktop/jetup-legends/brand/logo/jl-icon-gold-for-dark-512.png');-webkit-mask-size:contain;-webkit-mask-repeat:no-repeat;mix-blend-mode:screen}
+.center{display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center}
+</style>
+<div id="stage">
+
+<!-- S0 intro -->
+<div class="scene center" id="S0">
+  <div class="medwrap"><img src="file:///C:/Users/Jacka/Desktop/jetup-legends/brand/logo/jl-icon-gold-for-dark-512.png"><div class="sheen" id="s0sheen"></div></div>
+  <div class="serif el" id="s0lock" style="font-size:72px;margin-top:40px;font-weight:500;color:#EBDAB0">JetUP Legends</div>
+  <div class="mono el" id="s0sub" style="font-size:19px;color:#C69B3C;margin-top:14px">Inner Circle of JetUP</div>
+</div>
+
+<!-- S1 the start -->
+<div class="scene" id="S1">
+  <div class="tag el" id="s1tag">The Start</div>
+  <div style="margin-top:210px;display:flex;align-items:baseline;gap:70px">
+    <div>
+      <div class="hand el wo" id="s1a" style="font-size:190px;font-weight:600">$150</div>
+      <div class="mono dim el" id="s1al" style="font-size:19px;margin-top:6px">you</div>
+    </div>
+    <div class="hand el" id="s1p" style="font-size:120px;color:#A9A296">+</div>
+    <div>
+      <div class="hand el wo" id="s1b" style="font-size:190px;font-weight:600">$100</div>
+      <div class="mono dim el" id="s1bl" style="font-size:19px;margin-top:6px">Dennis Fast Start</div>
+    </div>
+    <div class="hand el" id="s1q" style="font-size:120px;color:#A9A296">=</div>
+    <div>
+      <div class="hand el wo" id="s1c" style="font-size:230px;font-weight:600;color:#C69B3C">$250</div>
+      <div class="mono el" id="s1cl" style="font-size:19px;margin-top:6px;color:#C69B3C">full price of entry</div>
+    </div>
+  </div>
+</div>
+
+<!-- S2 three lines -->
+<div class="scene" id="S2">
+  <div class="tag el" id="s2tag">Everything Rests on Three Lines</div>
+  <div class="hand el wo" id="s2h" style="font-size:110px;margin-top:34px">Three lines.</div>
+  <div style="margin-top:70px;max-width:1240px">
+    <div class="hand el wo" id="s2r1" style="font-size:72px">Width and depth</div>
+    <div class="rule el" id="s2u1" style="margin:8px 0 44px"></div>
+    <div class="hand el wo" id="s2r2" style="font-size:72px">Volume stays in the system</div>
+    <div class="rule el" id="s2u2" style="margin:8px 0 44px"></div>
+    <div class="hand el wo" id="s2r3" style="font-size:72px">Your stake grows on its own</div>
+    <div class="rule el" id="s2u3" style="margin:8px 0 0"></div>
+  </div>
+  <div class="mono dim el" id="s2cap" style="font-size:19px;position:absolute;bottom:110px;left:140px">one after another</div>
+</div>
+
+<!-- S3 structure -->
+<div class="scene" id="S3">
+  <div class="tag el" id="s3tag">Line 1 — Structure</div>
+  <div class="hand el wo" id="s3h" style="font-size:96px;margin-top:28px">Ten direct. Ten levels deep.</div>
+  <svg width="1640" height="640" viewBox="0 0 1640 640" style="margin-top:40px">
+    <circle id="s3root" cx="800" cy="120" r="34" fill="none" stroke="#EBDAB0" stroke-width="2.5" opacity="0"/>
+    <g id="s3lines"></g><g id="s3nodes"></g><g id="s3dots"></g>
+  </svg>
+  <div class="mono dim el" id="s3cap" style="font-size:19px;position:absolute;bottom:110px;left:140px">10 direct partners unlock all 10 levels</div>
+</div>
+
+<!-- S4 volume -->
+<div class="scene" id="S4">
+  <div class="tag el" id="s4tag">Line 2 — Volume</div>
+  <div class="hand el wo" id="s4h" style="font-size:96px;margin-top:28px">Volume stays.</div>
+  <div style="position:absolute;left:220px;right:220px;bottom:220px;height:520px;display:flex;align-items:flex-end;justify-content:space-between" id="s4bars"></div>
+  <svg id="s4svg" style="position:absolute;left:220px;bottom:220px" width="1480" height="560" viewBox="0 0 1480 560">
+    <polyline id="s4trend" fill="none" stroke="#EBDAB0" stroke-width="2" opacity="0.9"/>
+  </svg>
+  <div class="mono dim el" id="s4cap" style="font-size:19px;position:absolute;bottom:110px;left:140px">commission flows from every movement inside</div>
+</div>
+
+<!-- S5 stake -->
+<div class="scene" id="S5">
+  <div class="tag el" id="s5tag">Line 3 — Your Stake</div>
+  <div class="hand el wo" id="s5h" style="font-size:96px;margin-top:28px">Nobody starts big.</div>
+  <div style="margin-top:190px;display:flex;align-items:center;gap:56px">
+    <div>
+      <div class="hand el wo" id="s5a" style="font-size:130px;font-weight:600">$150</div>
+      <div class="mono dim el" id="s5al" style="font-size:18px;margin-top:4px">at the start</div>
+    </div>
+    <div class="rule el" id="s5l1" style="width:260px"></div>
+    <div class="mono el" id="s5m" style="font-size:24px;color:#A9A296">verify first</div>
+    <div class="rule el" id="s5l2" style="width:260px"></div>
+    <div>
+      <div class="hand el wo" id="s5b" style="font-size:130px;font-weight:600;color:#C69B3C">more</div>
+      <div class="mono el" id="s5bl" style="font-size:18px;margin-top:4px;color:#C69B3C">when it carries</div>
+    </div>
+  </div>
+  <div class="hand el wo" id="s5note" style="font-size:56px;color:#A9A296;position:absolute;bottom:130px;left:140px">almost everyone raises later</div>
+</div>
+
+<!-- S6 four streams -->
+<div class="scene" id="S6">
+  <div class="tag el" id="s6tag">In Short</div>
+  <div style="margin-top:40px" id="s6rows"></div>
+</div>
+
+<!-- S7 whole picture -->
+<div class="scene" id="S7">
+  <div class="tag el" id="s7tag">The Whole Picture</div>
+  <div class="hand el wo" id="s7a" style="font-size:120px;margin-top:120px">$250 in. Three lines.</div>
+  <div class="hand el wo" id="s7b" style="font-size:120px;color:#C69B3C">Ten levels deep.</div>
+  <div class="rule el" id="s7u" style="width:560px;margin:40px 0"></div>
+  <div class="hand el wo" id="s7c" style="font-size:66px;color:#6E6A61">Everything else is detail.</div>
+  <div class="hand el wo" id="s7d" style="font-size:78px;margin-top:34px">Ask the person who invited you.</div>
+</div>
+
+<!-- S8 finale -->
+<div class="scene center" id="S8">
+  <div class="medwrap el" id="s8med" style="width:300px;height:300px"><img src="file:///C:/Users/Jacka/Desktop/jetup-legends/brand/logo/jl-icon-gold-for-dark-512.png"><div class="sheen" id="s8sheen"></div></div>
+  <div class="serif el" id="s8lock" style="font-size:76px;margin-top:44px;font-weight:500;color:#EBDAB0">JetUP Legends</div>
+  <div class="mono el" id="s8sub" style="font-size:20px;color:#C69B3C;margin-top:16px">Inner Circle of JetUP</div>
+  <div class="dim el" id="s8disc" style="position:absolute;bottom:48px;left:140px;right:140px;font-size:12px;line-height:1.6;text-align:center">Every figure in this presentation is a calculation example, not a promise. Trading CFDs and FX involves a high level of risk and may result in the partial or total loss of your invested capital. Past performance does not guarantee future results.</div>
+</div>
+
+<img id="wm" src="file:///C:/Users/Jacka/Desktop/jetup-legends/brand/logo/jl-icon-gold-for-dark-512.png">
+<div id="vignette"></div><div id="grain"></div><div id="frame"></div><div id="blackout"></div>
+</div>
+
+<script>
+const T = __TIMELINE__;
+const S = T.times;
+const clamp=(x,a,b)=>x<a?a:x>b?b:x;
+const pr=(t,s,d)=>clamp((t-s)/d,0,1);
+const eo=p=>1-Math.pow(1-p,2.2);
+
+// build S3 svg
+(function(){
+  const L=document.getElementById('s3lines'),N=document.getElementById('s3nodes'),D=document.getElementById('s3dots');
+  for(let i=0;i<10;i++){
+    const x=140+i*147;
+    const ln=document.createElementNS('http://www.w3.org/2000/svg','line');
+    ln.setAttribute('x1',800);ln.setAttribute('y1',120);ln.setAttribute('x2',x);ln.setAttribute('y2',420);
+    ln.setAttribute('stroke','#C69B3C');ln.setAttribute('stroke-width','1.2');ln.setAttribute('opacity','.75');
+    const len=Math.hypot(x-800,300);ln.setAttribute('stroke-dasharray',len);ln.dataset.len=len;ln.setAttribute('stroke-dashoffset',len);
+    L.appendChild(ln);
+    const c=document.createElementNS('http://www.w3.org/2000/svg','circle');
+    c.setAttribute('cx',x);c.setAttribute('cy',420);c.setAttribute('r',13);c.setAttribute('fill','#C69B3C');c.setAttribute('opacity','0');
+    N.appendChild(c);
+    [[495,6,.65],[550,4,.4],[595,2.5,.22]].forEach(([y,r,o])=>{
+      const d=document.createElementNS('http://www.w3.org/2000/svg','circle');
+      d.setAttribute('cx',x);d.setAttribute('cy',y);d.setAttribute('r',r);d.setAttribute('fill','#9C7A2E');d.setAttribute('opacity','0');d.dataset.target=o;
+      D.appendChild(d);
+    });
+  }
+})();
+// build S4 bars
+const BARH=[.16,.24,.33,.43,.54,.66,.79,.93];
+(function(){
+  const w=document.getElementById('s4bars');
+  BARH.forEach(h=>{
+    const b=document.createElement('div');
+    b.style.cssText=`width:64px;height:${h*520}px;background:linear-gradient(180deg,#C69B3C,#9C7A2E);border-top:2px solid #EBDAB0;transform:scaleY(0);transform-origin:bottom`;
+    w.appendChild(b);
+  });
+})();
+// build S6 rows
+const ROWS=[["Lot Commission","per trade"],["Profit Share","on results"],["Infinity Bonus","through the depth"],["Global Pool","from the whole"]];
+(function(){
+  const w=document.getElementById('s6rows');
+  ROWS.forEach((r,i)=>{
+    w.insertAdjacentHTML('beforeend',`<div style="margin-top:64px">
+      <div style="display:flex;justify-content:space-between;align-items:baseline">
+        <div class="hand el wo" id="s6n${i}" style="font-size:84px">${r[0]}</div>
+        <div class="mono el" id="s6d${i}" style="font-size:24px;color:#A9A296">${r[1]}</div>
+      </div><div class="rule el" id="s6u${i}" style="margin-top:10px"></div></div>`);
+  });
+})();
+
+function fade(id,t,s,d,to=1){const e=document.getElementById(id);e.style.opacity=(eo(pr(t,s,d))*to).toFixed(3);}
+function wo(id,t,s,d){const e=document.getElementById(id);const p=pr(t,s,d);e.style.opacity=p>0?1:0;e.style.clipPath=`inset(0 ${(100-100*p).toFixed(2)}% 0 0)`;}
+function grow(id,t,s,d){const e=document.getElementById(id);const p=eo(pr(t,s,d));e.style.opacity=p>0?1:0;e.style.transform=`scaleX(${p.toFixed(3)})`;}
+
+function sceneOp(t,key,fin=0.5,fout=0.4){
+  const [a,b]=S[key];
+  if(t<a-0.05||t>b+0.05) return 0;
+  return Math.min(pr(t,a,fin), 1-pr(t,b-fout,fout));
+}
+
+function render(t){
+  // scenes visibility
+  for(const k of Object.keys(S)){
+    const el=document.getElementById(k);
+    const o=sceneOp(t,k);
+    el.style.opacity=o.toFixed(3);
+    el.style.display=o>0?'block':'none';
+    if(k==='S0'||k==='S8') el.style.display=o>0?'flex':'none';
+  }
+  // watermark during S1..S7
+  const wms=S.S1[0]+0.5, wme=S.S7[1]-0.3;
+  document.getElementById('wm').style.opacity=(0.22*Math.min(pr(t,wms,0.8),1-pr(t,wme,0.4))).toFixed(3);
+  // grain jitter
+  const g=document.getElementById('grain');
+  const fi=Math.floor(t*30);
+  g.style.transform=`translate(${(fi*37)%97-48}px,${(fi*53)%89-44}px)`;
+  // blackout at very end
+  document.getElementById('blackout').style.opacity=pr(t,T.total-1.0,1.0).toFixed(3);
+
+  let a;
+  // S0
+  a=S.S0[0];
+  if(t<S.S0[1]+0.1){
+    const p=pr(t,a,1.3);
+    const mw=document.querySelector('#S0 .medwrap');
+    mw.style.opacity=eo(p).toFixed(3);
+    mw.style.transform=`scale(${(0.92+0.08*eo(p)).toFixed(4)})`;
+    document.getElementById('s0sheen').style.backgroundPosition=`${(120-240*pr(t,a+0.8,1.2)).toFixed(1)}% 0`;
+    fade('s0lock',t,a+1.2,0.9); fade('s0sub',t,a+1.7,0.9);
+  }
+  // S1
+  a=S.S1[0];
+  fade('s1tag',t,a+0.3,0.6);
+  wo('s1a',t,a+0.8,0.9); fade('s1al',t,a+1.6,0.5);
+  fade('s1p',t,a+2.0,0.4);
+  wo('s1b',t,a+2.3,0.9); fade('s1bl',t,a+3.1,0.5);
+  fade('s1q',t,a+3.6,0.4);
+  wo('s1c',t,a+4.6,1.1); fade('s1cl',t,a+5.6,0.6);
+  // S2
+  a=S.S2[0];
+  fade('s2tag',t,a+0.3,0.6);
+  wo('s2h',t,a+0.7,1.0);
+  wo('s2r1',t,a+2.0,0.9); grow('s2u1',t,a+2.6,0.7);
+  wo('s2r2',t,a+3.6,0.9); grow('s2u2',t,a+4.2,0.7);
+  wo('s2r3',t,a+5.2,0.9); grow('s2u3',t,a+5.8,0.7);
+  fade('s2cap',t,a+7.0,0.8,1);
+  // S3
+  a=S.S3[0];
+  fade('s3tag',t,a+0.3,0.6);
+  wo('s3h',t,a+0.7,1.2);
+  document.getElementById('s3root').setAttribute('opacity',eo(pr(t,a+1.6,0.6)).toFixed(3));
+  document.querySelectorAll('#s3lines line').forEach((ln,i)=>{
+    const p=eo(pr(t,a+2.0+i*0.22,0.7));
+    ln.setAttribute('stroke-dashoffset',(ln.dataset.len*(1-p)).toFixed(1));
+  });
+  document.querySelectorAll('#s3nodes circle').forEach((c,i)=>{
+    c.setAttribute('opacity',(0.9*eo(pr(t,a+2.6+i*0.22,0.4))).toFixed(3));
+  });
+  document.querySelectorAll('#s3dots circle').forEach((c,i)=>{
+    const row=i%3;
+    c.setAttribute('opacity',(c.dataset.target*eo(pr(t,a+5.2+row*0.5,0.6))).toFixed(3));
+  });
+  fade('s3cap',t,a+6.6,0.8);
+  // S4
+  a=S.S4[0];
+  fade('s4tag',t,a+0.3,0.6);
+  wo('s4h',t,a+0.7,1.0);
+  document.querySelectorAll('#s4bars div').forEach((b,i)=>{
+    b.style.transform=`scaleY(${eo(pr(t,a+1.6+i*0.35,0.8)).toFixed(3)})`;
+    b.style.opacity=1;
+  });
+  const pts=[];
+  BARH.forEach((h,i)=>{const x=32+i*(64+(1480-8*64)/7);pts.push(`${x.toFixed(0)},${(560-h*520-14).toFixed(0)}`);});
+  const tp=eo(pr(t,a+4.6,1.6));
+  const n=Math.max(0,Math.round(tp*8));
+  document.getElementById('s4trend').setAttribute('points',pts.slice(0,n).join(' '));
+  fade('s4cap',t,a+6.4,0.8);
+  // S5
+  a=S.S5[0];
+  fade('s5tag',t,a+0.3,0.6);
+  wo('s5h',t,a+0.7,1.1);
+  wo('s5a',t,a+2.2,0.8); fade('s5al',t,a+2.9,0.5);
+  grow('s5l1',t,a+3.4,0.6); fade('s5m',t,a+4.0,0.6);
+  grow('s5l2',t,a+4.6,0.6);
+  wo('s5b',t,a+5.4,0.8); fade('s5bl',t,a+6.1,0.5);
+  wo('s5note',t,a+8.0,1.4);
+  // S6
+  a=S.S6[0];
+  fade('s6tag',t,a+0.3,0.6);
+  for(let i=0;i<4;i++){
+    wo('s6n'+i,t,a+0.8+i*2.0,1.0);
+    fade('s6d'+i,t,a+1.6+i*2.0,0.6);
+    grow('s6u'+i,t,a+1.3+i*2.0,0.8);
+  }
+  // S7
+  a=S.S7[0];
+  fade('s7tag',t,a+0.3,0.6);
+  wo('s7a',t,a+0.8,1.1);
+  wo('s7b',t,a+2.1,1.0);
+  grow('s7u',t,a+3.2,0.7);
+  wo('s7c',t,a+3.9,1.0);
+  wo('s7d',t,a+5.4,1.4);
+  // S8
+  a=S.S8[0];
+  fade('s8med',t,a+0.4,1.2);
+  document.getElementById('s8sheen').style.backgroundPosition=`${(120-240*pr(t,a+1.4,1.4)).toFixed(1)}% 0`;
+  fade('s8lock',t,a+1.4,0.9);
+  fade('s8sub',t,a+2.0,0.9);
+  fade('s8disc',t,a+2.8,1.0);
+}
+window.render=render;
+render(0);
+</script>
