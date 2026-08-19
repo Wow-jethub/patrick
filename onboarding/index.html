@@ -1,0 +1,419 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <meta name="theme-color" content="#0A0A0A">
+  <title>JetUP Legends · The First Thirty Days</title>
+  <style>
+    :root {
+      --onyx:#0A0A0A; --graphite:#14161C; --gold:#C69B3C; --champagne:#EBDAB0;
+      --antique:#9C7A2E; --ivory:#F4EADE; --muted:rgba(244,234,222,.58);
+      --hair:rgba(235,218,176,.17); --ease:cubic-bezier(.22,.8,.22,1);
+    }
+    * { box-sizing:border-box; }
+    html, body { width:100%; height:100%; margin:0; overflow:hidden; background:#000; }
+    body { color:var(--ivory); font-family:Montserrat, Arial, sans-serif; }
+    button { font:inherit; }
+    #viewport { position:fixed; inset:0; display:grid; place-items:center; background:#000; overflow:hidden; }
+    #stage { position:relative; width:100vw; height:100vh; overflow:hidden; background:var(--onyx); isolation:isolate; }
+    #stage::before {
+      content:""; position:absolute; inset:-18%; z-index:-3;
+      background:
+        radial-gradient(ellipse at 22% 16%, rgba(156,122,46,.20), transparent 30%),
+        radial-gradient(ellipse at 82% 37%, rgba(198,155,60,.10), transparent 31%),
+        radial-gradient(ellipse at 46% 92%, rgba(25,30,41,.92), transparent 40%),
+        linear-gradient(145deg, #08090d 0%, #0a0a0a 52%, #11151d 100%);
+      filter:blur(9px);
+    }
+    #stage::after {
+      content:""; position:absolute; inset:0; z-index:35; pointer-events:none; opacity:.18;
+      background-image:linear-gradient(rgba(255,255,255,.022) 1px, transparent 1px),linear-gradient(90deg, rgba(255,255,255,.015) 1px, transparent 1px);
+      background-size:6px 6px, 6px 6px; mix-blend-mode:soft-light;
+    }
+    #progress { position:absolute; inset:0 auto auto 0; height:4px; width:0; z-index:45; background:linear-gradient(90deg,var(--antique),var(--gold),var(--champagne),var(--antique)); transition:width .56s var(--ease); }
+    .brand { position:absolute; top:16px; left:9.4vw; z-index:45; width:174px; height:104px; display:block; }
+    .brand-logo { display:block; width:100%; height:100%; object-fit:contain; object-position:left center; }
+    #path-nav { position:absolute; top:124px; left:9.4vw; right:9.4vw; z-index:45; display:flex; align-items:center; gap:15px; padding:11px 0 12px; border-top:1px solid var(--hair); border-bottom:1px solid var(--hair); color:var(--champagne); font-size:12px; letter-spacing:.2em; text-transform:uppercase; }
+    #path-nav .path-kicker { color:var(--gold); font-weight:600; }
+    #path-nav .path-slash { color:var(--antique); }
+    #path-nav .path-mode { color:var(--muted); }
+    #path-nav-day { margin-left:auto; color:var(--gold); font-family:ui-monospace,SFMono-Regular,Menlo,monospace; font-size:11px; letter-spacing:.12em; }
+    .chrome-button { position:absolute; z-index:50; top:46px; width:62px; height:62px; border:1px solid var(--hair); border-radius:0; background:rgba(10,10,10,.22); color:var(--muted); font-size:26px; cursor:pointer; transition:color .2s ease,border-color .2s ease; }
+    .chrome-button:hover, .chrome-button:focus-visible { color:var(--champagne); border-color:var(--gold); outline:0; }
+    #menu-open { right:68px; }
+    #scene-label { position:absolute; top:70px; right:160px; z-index:45; color:var(--gold); font-size:15px; line-height:1; letter-spacing:.23em; text-transform:uppercase; text-align:right; }
+    #scenes { position:absolute; inset:0; z-index:10; }
+    .scene { position:absolute; inset:0; display:flex; flex-direction:column; padding:14vh 9.4vw 12vh; opacity:0; transform:translateY(24px); pointer-events:none; transition:opacity .55s ease, transform .55s var(--ease); }
+    .scene.active { opacity:1; transform:translateY(0); pointer-events:auto; }
+    .scene::after { content:""; position:absolute; left:9.4vw; right:9.4vw; bottom:9.6vh; height:1px; background:linear-gradient(90deg,var(--gold),transparent 44%); opacity:.45; }
+    .screen-layout { display:grid; grid-template-columns:minmax(0,1fr) clamp(235px,19vw,325px); align-items:center; gap:clamp(28px,4vw,72px); width:100%; margin:auto 0; }
+    .screen-copy { min-width:0; }
+    .content { margin:0; width:100%; }
+    .eyebrow { margin:0 0 3.2vh; font-size:15px; letter-spacing:.26em; color:var(--gold); text-transform:uppercase; }
+    h1, .opening-line { margin:0; font-family:"Cormorant Garamond", Georgia, serif; font-weight:400; letter-spacing:-.035em; color:var(--ivory); }
+    h1 { max-width:1250px; font-size:clamp(64px,8vh,88px); line-height:1.01; }
+    .gold { color:var(--gold); }
+    .rule { width:188px; height:2px; margin:3.1vh 0; background:linear-gradient(90deg,var(--antique),var(--gold),var(--champagne),var(--antique)); }
+    .body { max-width:1220px; margin:0; color:var(--muted); font-size:clamp(19px,2.25vh,25px); line-height:1.42; letter-spacing:.005em; }
+    .body + .body { margin-top:1.7vh; }
+    .list { width:100%; max-width:1260px; margin:3vh 0 0; border-top:1px solid var(--hair); }
+    .list-row { display:grid; grid-template-columns:190px 1fr; gap:28px; padding:1.65vh 0; border-bottom:1px solid var(--hair); }
+    .mono { font-family:ui-monospace,SFMono-Regular,Menlo,monospace; color:var(--gold); font-size:17px; letter-spacing:.11em; }
+    .list-row span:last-child { font-size:clamp(18px,2.05vh,23px); line-height:1.35; color:var(--ivory); }
+    .closing { max-width:1260px; margin:2.8vh 0 0; color:var(--gold); font-family:"Cormorant Garamond", Georgia,serif; font-size:clamp(29px,3.25vh,36px); line-height:1.18; }
+    .opening .content { transform:translateY(20px); }
+    .opening-line { max-width:1500px; font-size:clamp(78px,9.8vh,108px); line-height:.99; }
+    .opening-line .line { display:block; }
+    .opening-line .line:last-child { max-width:1500px; margin-top:14px; }
+    .opening-sub { margin:4.2vh 0 0; color:var(--muted); font-size:23px; letter-spacing:.04em; }
+    .opening-hint { position:absolute; left:9.4vw; bottom:5.1vh; margin:0; color:var(--muted); font-size:16px; letter-spacing:.24em; }
+    .twocol { display:grid; grid-template-columns:1fr 1fr; gap:28px; margin:3.2vh 0 0; max-width:1260px; }
+    .info-block { min-height:16vh; padding:2.5vh 34px 2.7vh; background:rgba(20,22,28,.8); border:1px solid var(--hair); }
+    .info-block h2 { margin:0 0 22px; color:var(--gold); font-size:17px; font-weight:400; letter-spacing:.18em; }
+    .info-block p { margin:0; color:var(--ivory); font-size:24px; line-height:1.36; }
+    .quote { max-width:1260px; margin:3.1vh 0 0; padding-left:30px; border-left:2px solid var(--gold); color:var(--gold); font-family:"Cormorant Garamond", Georgia, serif; font-size:clamp(33px,3.7vh,42px); line-height:1.12; }
+    .explanation { max-width:1260px; margin:2.2vh 0 0; color:var(--muted); font-size:clamp(17px,1.9vh,21px); line-height:1.42; }
+    .explanation strong { color:var(--ivory); font-weight:500; }
+    .dim-block { max-width:1260px; margin:3.2vh 0 0; padding:2.3vh 30px; border-left:2px solid var(--hair); background:rgba(20,22,28,.46); color:var(--muted); font-size:clamp(17px,1.9vh,21px); line-height:1.45; }
+    .action-panel { align-self:center; padding:25px 23px 22px; border:1px solid var(--hair); border-top:2px solid var(--gold); background:rgba(20,22,28,.78); }
+    .action-kicker { margin:0 0 11px; color:var(--gold); font-size:11px; letter-spacing:.2em; text-transform:uppercase; }
+    .action-panel h2 { margin:0 0 19px; color:var(--ivory); font-family:"Cormorant Garamond",Georgia,serif; font-size:30px; font-weight:400; line-height:1; }
+    .action-toggle { display:none; }
+    .checklist { display:grid; gap:0; border-top:1px solid var(--hair); }
+    .check-item { display:grid; grid-template-columns:18px 1fr; gap:10px; align-items:start; width:100%; padding:13px 0; border:0; border-bottom:1px solid var(--hair); background:transparent; color:var(--muted); text-align:left; font-size:13px; line-height:1.35; cursor:pointer; }
+    .check-item:hover, .check-item:focus-visible { color:var(--champagne); outline:0; }
+    .check-box { width:14px; height:14px; margin-top:1px; border:1px solid var(--gold); display:grid; place-items:center; color:var(--onyx); font-size:10px; line-height:1; }
+    .check-item.checked { color:var(--ivory); }
+    .check-item.checked .check-box { background:var(--gold); }
+    .final-lines { max-width:1350px; margin:4vh 0 0; display:grid; gap:3.2vh; font-family:"Cormorant Garamond", Georgia, serif; font-size:clamp(38px,4.3vh,48px); line-height:1.08; color:var(--ivory); }
+    .final-lines p { margin:0; }
+    .final-footer { position:absolute; left:9.4vw; bottom:5.2vh; color:var(--muted); font-size:15px; letter-spacing:.19em; text-transform:uppercase; }
+    #counter { position:absolute; z-index:45; left:50%; bottom:4.8vh; transform:translateX(-50%); color:var(--muted); font-family:ui-monospace,SFMono-Regular,Menlo,monospace; font-size:17px; letter-spacing:.14em; }
+    #counter b { color:var(--gold); font-weight:400; }
+    .arrows { position:absolute; right:68px; bottom:3.1vh; z-index:48; display:flex; gap:10px; }
+    .arrow { width:62px; height:62px; border:1px solid var(--hair); border-radius:0; background:rgba(10,10,10,.30); color:var(--ivory); font-size:29px; cursor:pointer; transition:border-color .2s ease,color .2s ease,opacity .2s ease; }
+    .arrow:hover:not(:disabled), .arrow:focus-visible { border-color:var(--gold); color:var(--gold); outline:0; }
+    .arrow:disabled { opacity:.25; cursor:not-allowed; }
+    #menu { position:absolute; z-index:70; inset:0; display:flex; flex-direction:column; padding:150px 180px 90px; background:rgba(8,8,8,.985); transform:translateY(100%); transition:transform .42s var(--ease); }
+    #menu.open { transform:translateY(0); }
+    #menu.instant { transition:none; }
+    #menu-close { top:46px; right:68px; }
+    #menu h2 { margin:0 0 32px; color:var(--gold); font-size:17px; font-weight:400; letter-spacing:.27em; }
+    #menu-list { border-top:1px solid var(--hair); }
+    .menu-item { width:100%; display:grid; grid-template-columns:78px 1fr; gap:20px; align-items:baseline; padding:20px 0; border:0; border-bottom:1px solid var(--hair); border-radius:0; text-align:left; background:transparent; color:var(--muted); cursor:pointer; }
+    .menu-item:hover, .menu-item.current { color:var(--champagne); }
+    .menu-item.current .menu-number { color:var(--gold); }
+    .menu-number { font-family:ui-monospace,SFMono-Regular,Menlo,monospace; font-size:17px; color:var(--muted); }
+    .menu-name { font-family:"Cormorant Garamond", Georgia,serif; font-size:43px; line-height:1; }
+    @media (min-width:721px) {
+      .eyebrow { display:none; }
+    }
+    @media (max-width:720px) {
+      #stage { width:100vw; height:100svh; }
+      .brand { top:calc(env(safe-area-inset-top) + 5px); left:22px; width:116px; height:65px; }
+      #path-nav { top:calc(env(safe-area-inset-top) + 72px); left:31px; right:31px; gap:8px; padding:7px 0 8px; font-size:8px; letter-spacing:.13em; }
+      #path-nav-day { font-size:8px; letter-spacing:.08em; }
+      .chrome-button { top:calc(env(safe-area-inset-top) + 18px); right:24px!important; width:46px; height:46px; font-size:20px; }
+      #scene-label { display:none; }
+      .scene { padding:120px 31px max(104px, calc(env(safe-area-inset-bottom) + 86px)); }
+      .scene::after { left:31px; right:31px; bottom:max(105px, calc(env(safe-area-inset-bottom) + 85px)); }
+      .screen-layout { display:block; height:100%; margin:0; }
+      .screen-copy { display:flex; flex-direction:column; height:100%; }
+      .screen-layout .content { margin:auto 0; }
+      .eyebrow { margin-bottom:18px; font-size:9px; }
+      h1 { font-size:45px; }
+      .rule { width:90px; margin:20px 0; }
+      .body { font-size:15px; line-height:1.35; }
+      .body + .body { margin-top:12px; }
+      .list { margin-top:19px; }
+      .list-row { grid-template-columns:100px 1fr; gap:13px; padding:15px 0; }
+      .mono { font-size:9px; }
+      .list-row span:last-child { font-size:13px; }
+      .closing { margin-top:19px; font-size:23px; }
+      .opening-line { font-size:61px; }
+      .opening-sub { margin-top:30px; font-size:15px; }
+      .opening-hint { left:31px; bottom:max(53px, calc(env(safe-area-inset-bottom) + 34px)); font-size:10px; }
+      .twocol { grid-template-columns:1fr; gap:9px; margin-top:20px; }
+      .info-block { min-height:0; padding:15px 17px; }
+      .info-block h2 { margin-bottom:12px; font-size:10px; }
+      .info-block p { font-size:13px; }
+      .quote { margin-top:21px; padding-left:15px; font-size:25px; }
+      .explanation { margin-top:18px; font-size:12.5px; }
+      .dim-block { margin-top:20px; padding:15px; font-size:12.5px; }
+      .action-panel { display:none; }
+      .action-toggle { display:flex; align-items:center; justify-content:space-between; width:100%; padding:11px 13px; border:0; background:rgba(20,22,28,.95); color:var(--champagne); font-size:9px; letter-spacing:.16em; text-align:left; text-transform:uppercase; cursor:pointer; }
+      .action-toggle span { color:var(--gold); font-size:16px; line-height:1; }
+      .action-body { display:none; padding:0 13px 7px; background:rgba(20,22,28,.98); }
+      .action-panel.open .action-body { display:block; }
+      .action-panel.open .action-toggle span { transform:rotate(45deg); }
+      .action-kicker, .action-panel h2 { display:none; }
+      .check-item { grid-template-columns:15px 1fr; padding:9px 0; font-size:11px; }
+      .check-box { width:12px; height:12px; font-size:8px; }
+      .final-lines { margin-top:36px; gap:31px; font-size:35px; }
+      .final-footer { display:none; }
+      #counter { bottom:max(53px, calc(env(safe-area-inset-bottom) + 34px)); font-size:11px; }
+      .arrows { right:24px; bottom:max(36px, calc(env(safe-area-inset-bottom) + 21px)); gap:6px; }
+      .arrow { width:42px; height:42px; font-size:21px; }
+      #menu { padding:120px 31px 60px; }
+      #menu-close { top:calc(env(safe-area-inset-top) + 18px); }
+      #menu h2 { margin-bottom:20px; font-size:11px; }
+      .menu-item { grid-template-columns:48px 1fr; gap:12px; padding:18px 0; }
+      .menu-number { font-size:11px; }
+      .menu-name { font-size:29px; }
+      .scene[data-index="3"] .closing { font-size:21px; line-height:1.08; }
+      .scene[data-index="3"] .list-row { padding:12px 0; }
+      .scene[data-index="3"] .explanation { line-height:1.32; }
+    }
+    @media (prefers-reduced-motion:reduce) { *,*::before,*::after { transition-duration:.01ms!important; animation-duration:.01ms!important; } }
+  </style>
+</head>
+<body>
+  <main id="viewport">
+    <section id="stage" aria-label="JetUP Legends onboarding presentation">
+      <div id="progress"></div>
+      <div class="brand"><img class="brand-logo" src="../jetup-legends-golden-dynasty.png" alt="JetUP Legends — Wealth, Leadership, Legacy"></div>
+      <div id="path-nav" aria-label="Onboarding path">
+        <span class="path-kicker">YOUR PATH</span><span class="path-slash">/</span><span class="path-mode">FIRST 30 DAYS</span>
+        <span id="path-nav-day">DAY 00 → DAY 30</span>
+      </div>
+      <div id="scene-label" aria-live="polite"></div>
+      <button id="menu-open" class="chrome-button" aria-label="Open contents">☰</button>
+      <div id="scenes"></div>
+      <div id="counter" aria-live="polite"></div>
+      <nav class="arrows" aria-label="Presentation controls">
+        <button id="previous" class="arrow" aria-label="Previous screen">←</button>
+        <button id="next" class="arrow" aria-label="Next screen">→</button>
+      </nav>
+      <aside id="menu" aria-label="Contents">
+        <button id="menu-close" class="chrome-button" aria-label="Close contents">×</button>
+        <h2>CONTENTS</h2>
+        <div id="menu-list"></div>
+      </aside>
+    </section>
+  </main>
+  <script>
+    // Placeholder values: update only here after the client review.
+    const CONFIG = {
+      threshold: 5000,
+      window: '14 days',
+      reward: 200
+    };
+    const money = value => `$${value.toLocaleString('en-US')}`;
+
+    const screens = [
+      {
+        label: '',
+        menu: 'Opening',
+        className: 'opening',
+        day: 'DAY 00 → DAY 30',
+        actionTitle: 'Start here',
+        actions: ['Read the path once.', 'Set aside the next 30 days.', 'Begin with your first five people.'],
+        html: `
+          <div class="content">
+            <p class="opening-line"><span class="line">Thirty days.</span><span class="line gold">From your first call to your first payout.</span></p>
+            <p class="opening-sub">The path this team already runs on.</p>
+          </div>
+          <p class="opening-hint">PRESS → TO BEGIN</p>`
+      },
+      {
+        label: 'STEP ONE · DAYS 1–14',
+        menu: 'The first 14 days',
+        day: 'DAYS 01–14',
+        actionTitle: 'Your first moves',
+        actions: ['Write down five names you can call.', 'Start five short conversations.', 'Send the link and set a time.'],
+        html: `
+          <div class="content">
+            <p class="eyebrow">STEP ONE · DAYS 1–14</p>
+            <h1>Bring five people.</h1>
+            <p class="closing gold" style="margin-top:18px">Not ten. Five.</p>
+            <div class="rule"></div>
+            <p class="body">Write down the people you already talk to. Not a target audience — the people you can call.</p>
+            <p class="body">For each of them: a short conversation, then the link. Do not explain everything yourself. Your job is to spark interest and set a time.</p>
+            <div class="list">
+              <div class="list-row"><span class="mono">TARGET</span><span>Five direct active partners</span></div>
+              <div class="list-row"><span class="mono">WINDOW</span><span>14 days</span></div>
+              <div class="list-row"><span class="mono">YOUR JOB</span><span>Start the conversation. Set the time.</span></div>
+            </div>
+            <p class="closing">You are not expected to know how to sell. Not yet.</p>
+          </div>`
+      },
+      {
+        label: 'STEP TWO · YOU ARE IN',
+        menu: 'You are in',
+        day: 'AFTER FIVE',
+        actionTitle: 'Work with the team',
+        actions: ['Join the closed group.', 'Make the weekly leader call.', 'Bring the person and set the time.'],
+        html: `
+          <div class="content">
+            <p class="eyebrow">STEP TWO · YOU ARE IN</p>
+            <h1>Five done. You are inside.</h1>
+            <div class="rule"></div>
+            <p class="body">From this point you are in the team's closed group — and you stop working alone.</p>
+            <div class="twocol">
+              <section class="info-block"><h2>WEEKLY LEADER CALL</h2><p>What is working right now. Real situations. Your questions answered.</p></section>
+              <section class="info-block"><h2>CLOSING CALLS</h2><p>You bring the person and set the time. Patrick joins the call and leads the conversation.</p></section>
+            </div>
+            <p class="quote">You do not need to know how to close.<br>You need to bring people and set the time.</p>
+          </div>`
+      },
+      {
+        label: 'STEP THREE · THE FIRST MONEY',
+        menu: 'The first money',
+        day: 'DAYS 01–14',
+        actionTitle: 'Track the target',
+        actions: ['Check the conditions in your back office.', 'Track first-line volume.', 'Confirm the 50/50 rule.'],
+        html: `
+          <div class="content">
+            <p class="eyebrow">STEP THREE · THE FIRST MONEY</p>
+            <h1>The first money has a date.</h1>
+            <div class="rule"></div>
+            <div class="list">
+              <div class="list-row"><span class="mono">CONDITION</span><span>${money(CONFIG.threshold)} first-line volume · 50/50 rule</span></div>
+              <div class="list-row"><span class="mono">WINDOW</span><span>${CONFIG.window} from joining the group</span></div>
+              <div class="list-row"><span class="mono">REWARD</span><span>${money(CONFIG.reward)} in cash</span></div>
+            </div>
+            <p class="explanation"><strong>The 50/50 rule.</strong> One person counts for half at most. Of the ${money(CONFIG.threshold)}, no more than ${money(CONFIG.threshold / 2)} may come from your strongest leg — the rest has to come from others. One large deposit does not clear the threshold.</p>
+            <p class="closing">This is not a company payout. It comes from Patrick personally — so you have money for coffee and fuel while you are out there talking to people.</p>
+          </div>`
+      },
+      {
+        label: 'STEP FOUR · BEYOND',
+        menu: 'Beyond',
+        day: 'FROM LINE 03',
+        actionTitle: 'Build for duplication',
+        actions: ['Build your first line by hand.', 'Support the people you brought in.', 'Watch for the first duplicate actions.'],
+        html: `
+          <div class="content">
+            <p class="eyebrow">STEP FOUR · BEYOND</p>
+            <h1>Then it starts building itself.</h1>
+            <div class="rule"></div>
+            <p class="body">Your first line is the part you build by hand. What comes after it is the part that grows without your daily involvement — and that is the whole point.</p>
+            <p class="body">In this team, real duplication began between the third and the fifth line. The team is now thirteen lines deep.</p>
+            <div class="dim-block">
+              Conditions, percentages and levels live in your back office. They change.<br>
+              Your back office is the only reliable place to read them — not a screenshot, not a retelling.
+            </div>
+          </div>`
+      },
+      {
+        label: 'THE CIRCLE',
+        menu: 'The rules of the circle',
+        day: 'ONGOING',
+        actionTitle: 'Keep the standard',
+        actions: ['Choose one program and move with it.', 'Use your back office as the source of truth.', 'Make room for those who are moving.'],
+        html: `
+          <div class="content">
+            <p class="eyebrow">THE CIRCLE</p>
+            <h1>The rules of the circle.</h1>
+            <div class="rule"></div>
+            <div class="final-lines">
+              <p>Those who move, move with us. Those who don't, make room.</p>
+              <p>Nobody runs five projects at once. Volume spread across different programs builds nothing.</p>
+            </div>
+          </div>
+          <p class="final-footer">JetUP Legends · Inner circle · By invitation</p>`
+      }
+    ];
+
+    const sceneHost = document.querySelector('#scenes');
+    const progress = document.querySelector('#progress');
+    const label = document.querySelector('#scene-label');
+    const pathNavDay = document.querySelector('#path-nav-day');
+    const counter = document.querySelector('#counter');
+    const menu = document.querySelector('#menu');
+    const menuList = document.querySelector('#menu-list');
+    const previous = document.querySelector('#previous');
+    const next = document.querySelector('#next');
+    let current = 0;
+    let startX = 0;
+    let startY = 0;
+
+    const actionPanel = screen => `
+      <aside class="action-panel" aria-label="${screen.actionTitle}">
+        <button class="action-toggle" type="button" aria-expanded="false">
+          <span>YOUR NEXT ACTIONS</span><span>+</span>
+        </button>
+        <div class="action-body">
+          <p class="action-kicker">YOUR NEXT ACTIONS</p>
+          <h2>${screen.actionTitle}</h2>
+          <div class="checklist">
+            ${screen.actions.map(action => `<button class="check-item" type="button" aria-pressed="false"><span class="check-box" aria-hidden="true"></span><span>${action}</span></button>`).join('')}
+          </div>
+        </div>
+      </aside>`;
+
+    sceneHost.innerHTML = screens.map((screen, index) => `
+      <article class="scene ${screen.className || ''}" data-index="${index}">
+        <div class="screen-layout">
+          <div class="screen-copy">${screen.html}</div>
+          ${actionPanel(screen)}
+        </div>
+      </article>`).join('');
+    menuList.innerHTML = screens.map((screen, index) => `
+      <button class="menu-item" data-index="${index}">
+        <span class="menu-number">${String(index + 1).padStart(2, '0')}</span>
+        <span class="menu-name">${screen.menu}</span>
+      </button>`).join('');
+
+    function render(index) {
+      current = Math.max(0, Math.min(index, screens.length - 1));
+      document.querySelectorAll('.scene').forEach((scene, i) => scene.classList.toggle('active', i === current));
+      document.querySelectorAll('.menu-item').forEach((item, i) => item.classList.toggle('current', i === current));
+      progress.style.width = `${((current + 1) / screens.length) * 100}%`;
+      label.textContent = screens[current].label;
+      pathNavDay.textContent = screens[current].day;
+      counter.innerHTML = `<b>${String(current + 1).padStart(2, '0')}</b> / ${screens.length}`;
+      previous.disabled = current === 0;
+      next.disabled = current === screens.length - 1;
+    }
+
+    function closeMenu(immediate = false) {
+      if (immediate) menu.classList.add('instant');
+      menu.classList.remove('open');
+      if (immediate) requestAnimationFrame(() => menu.classList.remove('instant'));
+    }
+    function go(index) { closeMenu(true); render(index); }
+    function fit() { document.querySelector('#stage').style.transform = 'none'; }
+
+    previous.addEventListener('click', () => go(current - 1));
+    next.addEventListener('click', () => go(current + 1));
+    document.querySelector('#menu-open').addEventListener('click', () => menu.classList.add('open'));
+    document.querySelector('#menu-close').addEventListener('click', () => closeMenu());
+    menuList.addEventListener('click', event => {
+      const button = event.target.closest('.menu-item');
+      if (button) go(Number(button.dataset.index));
+    });
+    sceneHost.addEventListener('click', event => {
+      const toggle = event.target.closest('.action-toggle');
+      if (toggle) {
+        const panel = toggle.closest('.action-panel');
+        const open = panel.classList.toggle('open');
+        toggle.setAttribute('aria-expanded', String(open));
+        return;
+      }
+      const item = event.target.closest('.check-item');
+      if (item) {
+        const checked = item.classList.toggle('checked');
+        item.setAttribute('aria-pressed', String(checked));
+        item.querySelector('.check-box').textContent = checked ? '✓' : '';
+      }
+    });
+    addEventListener('keydown', event => {
+      if (event.key === 'ArrowRight') go(current + 1);
+      if (event.key === 'ArrowLeft') go(current - 1);
+      if (event.key === 'Escape') closeMenu();
+    });
+    document.querySelector('#stage').addEventListener('pointerdown', event => { startX = event.clientX; startY = event.clientY; });
+    document.querySelector('#stage').addEventListener('pointerup', event => {
+      const dx = event.clientX - startX;
+      const dy = event.clientY - startY;
+      if (Math.abs(dx) > 46 && Math.abs(dx) > Math.abs(dy)) go(current + (dx < 0 ? 1 : -1));
+    });
+    addEventListener('resize', fit);
+    fit();
+    const requestedScreen = Number(new URLSearchParams(location.search).get('screen'));
+    render(Number.isInteger(requestedScreen) && requestedScreen >= 1 ? requestedScreen - 1 : 0);
+  </script>
+</body>
+</html>
