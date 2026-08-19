@@ -1,0 +1,29 @@
+<!-- @dsCard group="Brand" name="Логопак" subtitle="Прозрачные вариации для тёмного и светлого" viewport="1280x760" -->
+<link rel="stylesheet" href="../colors_and_type.css">
+<style>
+body{margin:0;padding:28px;background:var(--onyx)}
+.grid{display:grid;grid-template-columns:repeat(4,1fr);gap:16px}
+.cell{padding:18px 12px;text-align:center;border:1px solid #232323}
+.cell img{max-width:100%;height:auto}
+.dark{background:var(--onyx)}
+.light{background:var(--ivory)}
+.cap{margin:10px 0 0}
+.light .cap{color:#6E6A62}
+</style>
+<div class="grid">
+  <div class="cell dark"><img src="../assets/logo/jl-icon-gold-for-dark.webp" style="width:120px"><p class="meta cap">icon · для тёмного</p></div>
+  <div class="cell light"><img src="../assets/logo/jl-icon-antique-for-light.webp" style="width:120px"><p class="meta cap">icon · для светлого</p></div>
+  <div class="cell dark"><img src="../assets/logo/jl-ligature-gold-for-dark.webp" style="width:72px"><p class="meta cap">лигатура · &lt; 22 px</p></div>
+  <div class="cell light"><img src="../assets/logo/favicon-512.webp" style="width:64px"><p class="meta cap">фавикон</p></div>
+  <div class="cell dark" style="grid-column:span 2"><img src="../assets/logo/jl-lockup-horizontal-for-dark.webp" style="width:86%"><p class="meta cap">лок-ап горизонтальный</p></div>
+  <div class="cell light" style="grid-column:span 2"><img src="../assets/logo/jl-lockup-horizontal-for-light.webp" style="width:86%"><p class="meta cap">лок-ап горизонтальный · светлый</p></div>
+  <div class="cell dark"><img src="../assets/logo/jl-lockup-vertical-for-dark.webp" style="width:130px"><p class="meta cap">лок-ап вертикальный</p></div>
+  <div class="cell light"><img src="../assets/logo/jl-lockup-vertical-for-light.webp" style="width:130px"><p class="meta cap">вертикальный · светлый</p></div>
+  <div class="cell dark" style="grid-column:span 2;display:flex;flex-direction:column;justify-content:center">
+    <img src="../assets/logo/jl-wordmark-for-dark.webp" style="width:82%;margin:0 auto">
+    <p class="meta cap">wordmark · Cormorant + Montserrat, пересобран в шрифтах</p>
+  </div>
+</div>
+<p style="font-size:12px;color:var(--dim);margin:18px 0 0">
+Знак только на обсидиане или ivory · ниже 22 px — лигатура вместо медальона · полный вес PNG до 2048 px — <code>brand/logo/</code> в репозитории. Вектор для печати — Этап 3.
+</p>

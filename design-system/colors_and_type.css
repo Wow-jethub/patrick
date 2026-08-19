@@ -1,0 +1,70 @@
+/* ============================================================
+   JETUP_LEGENDS — Design System v1.0
+   Закрытый круг лидеров JetUP. Команда Патрика.
+   Отдельный бренд: обсидиан + один металл. НЕ фиолетовый JETUP_BRANDKIT.
+   ============================================================ */
+
+@import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400;500;600&family=Montserrat:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap');
+
+:root{
+  /* --- grounds --- */
+  --onyx:      #0A0A0A;   /* основной фон, 80–85% кадра */
+  --graphite:  #14161C;   /* панели, карточки, боковая навигация */
+  --slate:     #1B1E25;   /* приподнятый слой: тайлы метрик, шапки таблиц */
+
+  /* --- metal: приглушённый, никогда не web-gold --- */
+  --antique:   #9C7A2E;   /* тень градиента, ранг I, кант кнопки */
+  --gold:      #C69B3C;   /* основной металл: знак, акцент, активное состояние */
+  --champagne: #EBDAB0;   /* блик, подзаголовки, кант на тёмном */
+
+  /* --- neutrals, сдвинуты в тепло --- */
+  --ivory:     #F4EADE;   /* заголовки и ключевые числа. Чистого белого нет */
+  --platinum:  #BFC1C2;   /* мелкая поддержка на печати */
+  --text:      #A9A296;   /* основной текст */
+  --dim:       #6E6A62;   /* подписи, дисклеймер */
+
+  /* --- semantic --- */
+  --positive:  #5E8A6A;   /* только рост метрики, не акцент */
+
+  /* --- parent-brand bridge, ≤5% площади, никогда рядом с золотом в равной доле --- */
+  --jetup:     #7C3AED;
+
+  /* --- lines --- */
+  --hair:      rgba(198,155,60,.24);
+  --hair-soft: rgba(198,155,60,.12);
+  --rule:      rgba(244,234,222,.09);
+
+  /* --- metal gradient: 4 стопа, 135°, тёмное→среднее→блик→тёмное --- */
+  --metal: linear-gradient(135deg,#9C7A2E 0%,#C69B3C 38%,#EBDAB0 62%,#9C7A2E 100%); /* @kind color */
+
+  /* --- type --- */
+  --display: 'Cormorant Garamond','Bodoni MT',Didot,Georgia,serif; /* @kind font */
+  --sans:    'Montserrat','Century Gothic','Avenir Next',Helvetica,Arial,sans-serif; /* @kind font */
+  --mono:    'JetBrains Mono',Consolas,'SF Mono',ui-monospace,monospace; /* @kind font */
+
+  /* --- scale --- */
+  --t-display-xl: 88px/0.98; /* @kind font */
+  --t-display-l:  56px/1.05; /* @kind font */
+  --t-display-m:  34px/1.15; /* @kind font */
+  --t-body-l:     17px/1.62; /* @kind font */
+  --t-body:       15px/1.65; /* @kind font */
+  --t-label:      12px;   /* Montserrat 600, caps, tracking .20em */
+  --t-meta:       11px;   /* Mono, caps, tracking .28em */
+
+  /* --- shape: острые углы, радиуса нет --- */
+  --radius: 0;
+}
+
+body{
+  background:var(--onyx);
+  color:var(--text);
+  font-family:var(--sans);
+  font-size:15px;
+  line-height:1.65;
+  -webkit-font-smoothing:antialiased;
+}
+
+h1,h2,h3.display{font-family:var(--display);font-weight:400;color:var(--ivory);letter-spacing:-.01em}
+.label{font-family:var(--sans);font-weight:600;font-size:12px;letter-spacing:.20em;text-transform:uppercase;color:var(--champagne)}
+.meta{font-family:var(--mono);font-size:11px;letter-spacing:.28em;text-transform:uppercase;color:var(--dim)}
+.tnum{font-variant-numeric:tabular-nums}
